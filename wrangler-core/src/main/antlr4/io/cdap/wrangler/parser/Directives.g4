@@ -195,6 +195,10 @@ identifierList
  : Identifier (',' Identifier)*
  ;
 
+byteSizeArg : BYTE_SIZE ;
+timeDurationArg : TIME_DURATION ;
+
+
 
 /*
  * Following are the Lexer Rules used for tokenizing the recipe.
@@ -311,3 +315,17 @@ fragment Int
 fragment Digit
  : [0-9]
  ;
+
+
+
+
+// Updations
+
+// Lexer Rules
+
+BYTE_SIZE : DIGITS BYTE_UNIT ;
+TIME_DURATION : DIGITS TIME_UNIT ;
+
+fragment BYTE_UNIT : ('B' | 'KB' | 'MB' | 'GB' | 'TB' | 'PB') ;
+fragment TIME_UNIT : ('ms' | 's' | 'm' | 'h') ;
+fragment DIGITS : [0-9]+ ('.' [0-9]+)? ;

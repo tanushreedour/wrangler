@@ -57,3 +57,13 @@ public interface Token extends Serializable {
    */
   JsonElement toJson();
 }
+
+public enum Type {
+  COLUMN_NAME,
+  STRING,
+  INTEGER,
+  FLOAT,
+  BOOLEAN,
+  BYTE_SIZE,
+  TIME_DURATION
+}
